@@ -1,0 +1,97 @@
+
+REST API Contact
+---------------
+
+Отримання всіх даних
+GET
+http://localhost:8080/api/v1/contacts
+
+
+Створення даних
+POST
+http://localhost:8080/api/v1/contacts
+
+Виконуємо окремі запити.
+Налаштування в Postman: Body, raw, JSON.
+
+{
+    "name": "Yaroslav",
+    "phone": "+380 095 327 88 57"
+}
+
+{
+    "name": "Tetiana",
+    "phone": "+380 099 582 09 47"
+}
+
+{
+    "name": "Vlad",
+    "phone": "+380 93 854 75 23"
+}
+
+{
+    "name": "Kira",
+    "phone": "+380 97 730 18 84"
+}
+
+{
+    "name": "Marik",
+    "phone": "+380 50 567 42 11"
+}
+
+{
+    "name": "Vlad",
+    "phone": "+380 99 743 65 00"
+}
+
+Отримання даних за id
+GET
+http://localhost:8080/api/v1/contacts/2
+If id does not exist
+http://localhost:8080/api/v1/contacts/9
+
+
+Оновлення даних за id
+PUT
+http://localhost:8080/api/v1/contacts/2
+If id does not exist
+http://localhost:8080/api/v1/contacts/9
+
+Налаштування в Postman: Body, raw, JSON.
+
+Тетяна поїхала в Польщу і змінила номер
+{
+    "name": "Tetiana",
+    "phone": "+48 574 517 525"
+}
+
+Видалення даних за id
+DELETE
+http://localhost:8080/api/v1/contacts/5
+If id does not exist
+http://localhost:8080/api/v1/contacts/9
+
+
+ Отримання даних за name
+ GET
+ http://localhost:8080/api/v1/contacts/query-by-name?name=Vlad
+ If name does not exist
+ http://localhost:8080/api/v1/contacts/query-by-name?name=Vladik
+
+Отримання даних за ids
+GET
+http://localhost:8080/api/v1/contacts/query-between-ids?from=3&to=6
+If ids do not exist
+http://localhost:8080/api/v1/contacts/query-between-ids?from=9&to=12
+
+
+Отримання даних за names(за двома)
+GET
+http://localhost:8080/api/v1/contacts/query-name-in?name1=Vlad&name2=Yaroslav
+If name1 does not exist
+http://localhost:8080/api/v1/contacts/query-name-in?name1=Vladik&name2=Yaroslav
+If name2 does not exist
+http://localhost:8080/api/v1/contacts/query-name-in?name1=Vlad&name2=Yarik
+If name1 and name2 do not exist
+http://localhost:8080/api/v1/contacts/query-name-in?name1=Vladik&name2=Yarik
+
